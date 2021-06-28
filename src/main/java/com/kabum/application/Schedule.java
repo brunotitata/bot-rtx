@@ -37,6 +37,8 @@ public class Schedule {
 	@Scheduled(fixedDelay = 30000)
 	public void executar() {
 
+		LOG.info("Executando scheduled...");
+		
 		repository.all().forEach(p -> {
 
 			List<KabumResources> listaDeProdutos = kabumServicePort
