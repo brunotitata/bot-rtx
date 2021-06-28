@@ -48,7 +48,7 @@ public class KabumServiceAdapter implements KabumServicePort {
 		Iterator<JsonNode> iterator = readTree.iterator();
 		while (iterator.hasNext()) {
 			JsonNode next = iterator.next();
-			if (next.findValue("disponibilidade").asBoolean() && new BigDecimal(next.findValue("preco_desconto").asText()).compareTo(dto.getValorMaximo()) == -1) {
+			if (next.findValue("disponibilidade").asBoolean()) {
 				produtos.add(new KabumResources(
 						next.get("nome").asText(), 
 						next.findValue("disponibilidade").asBoolean(), 
