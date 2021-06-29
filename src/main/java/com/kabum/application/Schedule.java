@@ -60,7 +60,7 @@ public class Schedule {
 						throw new RuntimeException(e.getMessage());
 					}
 					
-					awsServicePort.notificar(p.getCelular(), produto.getNomeDaPlaca() + "\n" + produto.getPrecoVista() + "\n" + produto.getLink());
+//					awsServicePort.notificar(p.getCelular(), produto.getNomeDaPlaca() + "\n" + produto.getPrecoVista() + "\n" + produto.getLink());
 				}
 
 			});
