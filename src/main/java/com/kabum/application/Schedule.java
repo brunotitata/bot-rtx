@@ -66,6 +66,14 @@ public class Schedule {
 					}
 					
 					applicationEventPublisher.publishEvent(
+							new Notificar(
+									p.getCelular(), 
+									produto.getNomeDaPlaca() + "\n" + produto.getPrecoVista() + "\n" + produto.getLink(),
+									produto.getNomeDaPlaca(),
+									produto.getPrecoVista(),
+									produto.getLink()));
+					
+					applicationEventPublisher.publishEvent(
 							new Registro(
 									UUID.randomUUID(), 
 									produto.getNomeDaPlaca(), 
@@ -73,13 +81,6 @@ public class Schedule {
 									produto.getLink(), 
 									LocalDateTime.now()));
 					
-					applicationEventPublisher.publishEvent(
-							new Notificar(
-									p.getCelular(), 
-									produto.getNomeDaPlaca() + "\n" + produto.getPrecoVista() + "\n" + produto.getLink(),
-									produto.getNomeDaPlaca(),
-									produto.getPrecoVista(),
-									produto.getLink()));
 				}
 
 			});
