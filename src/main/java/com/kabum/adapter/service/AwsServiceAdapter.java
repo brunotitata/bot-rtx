@@ -8,11 +8,10 @@ import org.springframework.stereotype.Component;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.model.MessageAttributeValue;
 import com.amazonaws.services.sns.model.PublishRequest;
-import com.amazonaws.services.sns.model.PublishResult;
-import com.kabum.application.AwsServicePort;
+import com.kabum.application.NotificationServicePort;
 
 @Component
-public class AwsServiceAdapter implements AwsServicePort{
+public class AwsServiceAdapter implements NotificationServicePort{
 
 	private final AmazonSNS amazonSNS;
 
@@ -21,7 +20,7 @@ public class AwsServiceAdapter implements AwsServicePort{
 	}
 
 	@Override
-	public PublishResult notificar(String number, String messageBody) {
+	public void notificar(String number, String messageBody) {
 
 		Map<String, MessageAttributeValue> smsAttributes = new HashMap<String, MessageAttributeValue>();
 		smsAttributes.put("AWS.SNS.SMS.SMSType", new MessageAttributeValue().withStringValue("Promotional").withDataType("String"));
@@ -29,7 +28,7 @@ public class AwsServiceAdapter implements AwsServicePort{
 		PublishRequest request = new PublishRequest();
 		request.withMessage(messageBody).withPhoneNumber("+55".concat(number)).withMessageAttributes(smsAttributes);
 
-		return amazonSNS.publish(request);
+		amazonSNS.publish(request);
 	}
 
 }

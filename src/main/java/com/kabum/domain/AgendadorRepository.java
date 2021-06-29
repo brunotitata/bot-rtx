@@ -5,10 +5,10 @@ import java.util.UUID;
 
 import com.kabum.adapter.web.KabumDto;
 
-public interface KabumObjectRepository {
+public interface AgendadorRepository {
 
 	UUID save(KabumDto object);
 
-	List<KabumObject> all();
+	List<Agendador> all();
 
 }

@@ -5,14 +5,14 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 import com.kabum.adapter.web.KabumDto;
-import com.kabum.domain.KabumObjectRepository;
+import com.kabum.domain.AgendadorRepository;
 
 @Component
 public class Service {
 
-	private KabumObjectRepository kabumObjectRepository;
+	private AgendadorRepository kabumObjectRepository;
 
-	public Service(KabumObjectRepository kabumObjectRepository) {
+	public Service(AgendadorRepository kabumObjectRepository) {
 		this.kabumObjectRepository = kabumObjectRepository;
 	}
 

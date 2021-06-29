@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "agendador")
-public class KabumObject {
+public class Agendador {
 
 	@Id
 	private UUID id;
@@ -17,7 +17,7 @@ public class KabumObject {
 	private BigDecimal valorMaximo;
 	private String celular;
 
-	public KabumObject(UUID id, String produto, BigDecimal valorMaximo, String celular) {
+	public Agendador(UUID id, String produto, BigDecimal valorMaximo, String celular) {
 		this.id = id;
 		this.produto = produto;
 		this.valorMaximo = valorMaximo;
@@ -25,7 +25,7 @@ public class KabumObject {
 	}
 
 	@SuppressWarnings("unused")
-	private KabumObject() {
+	private Agendador() {
 	}
 
 	public UUID getId() {
