@@ -12,8 +12,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kabum.adapter.http.KabumResources;
 import com.kabum.adapter.web.KabumDto;
 import com.kabum.domain.AgendadorRepository;
@@ -28,14 +26,12 @@ public class Schedule {
 
 	private KabumServicePort kabumServicePort;
 	private AgendadorRepository repository;
-	private ObjectMapper objectMapper;
 	private ApplicationEventPublisher applicationEventPublisher;
 
-	public Schedule(KabumServicePort kabumServicePort, AgendadorRepository repository, ObjectMapper objectMapper,
+	public Schedule(KabumServicePort kabumServicePort, AgendadorRepository repository,
 			ApplicationEventPublisher applicationEventPublisher) {
 		this.kabumServicePort = kabumServicePort;
 		this.repository = repository;
-		this.objectMapper = objectMapper;
 		this.applicationEventPublisher = applicationEventPublisher;
 	}
 
@@ -58,12 +54,6 @@ public class Schedule {
 				BigDecimal precoVista = produto.getPrecoVista();
 
 				if (precoVista.compareTo(p.getValorMaximo()) == -1) {
-
-					try {
-						LOG.info("Produto encontrado... " + objectMapper.writeValueAsString(produto));
-					} catch (JsonProcessingException e) {
-						throw new RuntimeException(e.getMessage());
-					}
 					
 					applicationEventPublisher.publishEvent(
 							new Notificar(
