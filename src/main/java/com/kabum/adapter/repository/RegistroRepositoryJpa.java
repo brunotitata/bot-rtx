@@ -24,8 +24,8 @@ public class RegistroRepositoryJpa implements RegistroRepository {
 	}
 
 	@Override
-	public Optional<Registro> findByProdutoAndValor(String produto, BigDecimal valor) {
-		return repository.findByProdutoAndValor(produto, valor);
+	public Optional<Registro> findByProdutoAndValorAndCelular(String produto, BigDecimal valor, String celular) {
+		return repository.findByProdutoAndValorAndCelular(produto, valor, celular);
 	}
 
 }

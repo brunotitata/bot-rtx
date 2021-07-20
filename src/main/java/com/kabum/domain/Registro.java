@@ -18,13 +18,15 @@ public class Registro {
 	private BigDecimal valor;
 	private String link;
 	private LocalDateTime data;
+	private String celular;
 
-	public Registro(UUID id, String produto, BigDecimal valor, String link, LocalDateTime data) {
+	public Registro(UUID id, String produto, BigDecimal valor, String link, LocalDateTime data, String celular) {
 		this.id = id;
 		this.produto = produto;
 		this.valor = valor;
 		this.link = link;
 		this.data = data;
+		this.celular = celular;
 	}
 
 	@SuppressWarnings("unused")
@@ -67,10 +69,23 @@ public class Registro {
 		return id;
 	}
 
-	@Override
-	public String toString() {
-		return "Registro [id=" + id + ", produto=" + produto + ", valor=" + valor + ", link=" + link + ", data=" + data
-				+ "]";
-	}
+    public String getCelular() {
+        return celular;
+    }
 
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro{" +
+                "id=" + id +
+                ", produto='" + produto + '\'' +
+                ", valor=" + valor +
+                ", link='" + link + '\'' +
+                ", data=" + data +
+                ", celular='" + celular + '\'' +
+                '}';
+    }
 }

@@ -22,11 +22,12 @@ public class RegistroListener {
 	}
 
 	@EventListener
-	public void execute(Registro command) {
+	public void registrarProduto(Registro command) {
 
-		Optional<Registro> contemRegistro = registroRepository.findByProdutoAndValor(
+		Optional<Registro> contemRegistro = registroRepository.findByProdutoAndValorAndCelular(
 				command.getProduto(),
-				command.getValor());
+				command.getValor(),
+				command.getCelular());
 
 		if (contemRegistro.isPresent())
 			return;

@@ -28,9 +28,10 @@ public class NotificarListener {
 	@EventListener
 	public void notificarUsuario(Notificar command) {
 		
-		Optional<Registro> contemRegistro = registroRepository.findByProdutoAndValor(
+		Optional<Registro> contemRegistro = registroRepository.findByProdutoAndValorAndCelular(
 				command.getProduto(),
-				command.getValor());
+				command.getValor(),
+				command.getCelular());
 
 		if (contemRegistro.isPresent()) 
 			return;

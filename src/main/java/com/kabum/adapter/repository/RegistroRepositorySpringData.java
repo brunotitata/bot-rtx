@@ -10,6 +10,6 @@ import com.kabum.domain.Registro;
 
 public interface RegistroRepositorySpringData extends JpaRepository<Registro, UUID> {
 
-	Optional<Registro> findByProdutoAndValor(String produto, BigDecimal valor);
+	Optional<Registro> findByProdutoAndValorAndCelular(String produto, BigDecimal valor, String celular);
 
 }

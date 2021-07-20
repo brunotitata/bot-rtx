@@ -7,6 +7,6 @@ public interface RegistroRepository {
 
 	void save(Registro registro);
 
-	Optional<Registro> findByProdutoAndValor(String produto, BigDecimal valor);
+	Optional<Registro> findByProdutoAndValorAndCelular(String produto, BigDecimal valor, String celular);
 
 }

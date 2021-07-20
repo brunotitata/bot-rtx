@@ -69,7 +69,8 @@ public class Schedule {
 									produto.getNomeDaPlaca(), 
 									produto.getPrecoVista(),
 									produto.getLink(), 
-									LocalDateTime.now()));
+									LocalDateTime.now(),
+									p.getCelular()));
 					
 				}
 
